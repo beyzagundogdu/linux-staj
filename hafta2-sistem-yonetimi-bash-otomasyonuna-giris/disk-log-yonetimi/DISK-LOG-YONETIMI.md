@@ -4,24 +4,24 @@
 
 ## Disk Kallanimi
 
-| Komut          | Aciklama
-|________________|______________________________________________
-| 'df -h'        | Diskin ne kadar dolu oldugunu gosterir
-| 'du -sh klasor'| Belirli bir klasorun toplam boyutunu gosterir
-| 'lsblk'        | Disk ve bolum yapisini tablo seklinde gosterir
+| Komut          | Aciklama                                      |
+|________________|_______________________________________________|
+| 'df -h'        | Diskin ne kadar dolu oldugunu gosterir        |
+| 'du -sh klasor'| Belirli bir klasorun toplam boyutunu gosterir |
+| 'lsblk'        | Disk ve bolum yapisini tablo seklinde gosterir|
 
 ## Log Dosyalari
 
-| Dosya               | Ne Icin Kullanilir? 
-|_____________________|____________________________________________________
-| '/var/log/auth.log' | Girisler, sudo kullanimi, SSH gibi guvenlik olaylari 
-| '/var/log/syslog'   | Genel sistem olaylari, cron gorevleri, ag servisleri
-| /var/log/dpkg.log'  | Kurulan veya kaldirilan yazilim paketlerinin kaydi
+| Dosya               | Ne Icin Kullanilir?                                 | 
+|_____________________|_____________________________________________________|
+| '/var/log/auth.log' | Girisler, sudo kullanimi, SSH gibi guvenlik olaylari| 
+| '/var/log/syslog'   | Genel sistem olaylari, cron gorevleri, ag servisleri|
+| /var/log/dpkg.log'  | Kurulan veya kaldirilan yazilim paketlerinin kaydi  |
 
 ## Log Okuma Komutlari
 
-| Komut                    | Aciklama
-|__________________________|_________________________________________________________________________________
-| 'cat', 'less', 'tail -f' | Loglari sirasiyla, sayfa sayfa veya anlik okumak icin
-| grep 'kelime' 'dosya'    | Belirli bir kelimeyi log dosyasinda aramak icin
-| 'journalctl -u servis'   | Systemd tarafindan yonetilen bir servisin gecmis gunluk kayitlarini incelemek icin
+| Komut                    | Aciklama                                                                            |
+|__________________________|_____________________________________________________________________________________|
+| 'cat', 'less', 'tail -f' | Loglari sirasiyla, sayfa sayfa veya anlik okumak icin                               | 
+| grep 'kelime' 'dosya'    | Belirli bir kelimeyi log dosyasinda aramak icin                                     |
+| 'journalctl -u servis'   | Systemd tarafindan yonetilen bir servisin gecmis gunluk kayitlarini incelemek icin  |
