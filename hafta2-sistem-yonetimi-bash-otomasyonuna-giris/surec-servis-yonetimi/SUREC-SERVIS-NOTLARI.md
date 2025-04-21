@@ -7,7 +7,7 @@
 
 ### Komutlar:
 | Komut        | Aciklama                                  |
-|______________|___________________________________________|
+|--------------|-------------------------------------------|
 |              |                                           |
 | ps aux       | Tum surecleri listeler                    |
 | top          | Canli surec ve kaynak kullanim takibi     |
@@ -21,7 +21,7 @@
 
 ### Komutlar:
 | Komut                      | Aciklama                                    |
-|____________________________|_____________________________________________|
+|----------------------------|---------------------------------------------|
 |                            |                                             |
 | 'systemctl status servis'  | Servisin calisip calismadigini kontrol eder |
 | 'systemctl start servis'   | Servisi baslatir                            |
