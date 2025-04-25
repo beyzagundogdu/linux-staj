@@ -16,7 +16,7 @@ Bu belge, Linux sistemlerinde duzenli ifadelerin nasil kullanilacagini detayli o
 | `{n}`      | n kez tekrar                             | 
 | `{n,m}`    | n ile m arasi tekrar                     | 
 | `/`        | Ozel karakter kacisi                     |
-| `|`        | "veya" operatoru                         |
+| `|`        | veya operatoru                           |
 
 ## E-Posta Adresi Yakalama
 grep -E "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"mail.log
