@@ -42,7 +42,44 @@ LIMIT 10;
 . RAM'de olmayan tabloya erisim -> disk I/O (yavaslatir)
 
 
+## Arka Plan: `pg_buffercache`, `pg_class`,`pg_relation_filenode()` Ne Ise Yarar?
 
+### `pg_buffercache` 
+Bu gorunum su anda PostgreSQL'in RAM (shared_buffers) alaninda tututlan **veri sayfalari** hakkinda bilgi verir.
+
+| Sutun         | Aciklama                                          | 
+|---------------|---------------------------------------------------|
+| `relfilenode` | Bu sayfanin ait oldugu dosya (tablo/index) ID'si  |
+| `blocknum`    | O dosya icindeki sayfa numarasi                   |
+| `isdirty`     | Sayfa diske yazilmayi bekliyor mu?                |
+| `usagecount`  | LRU mantigiyla ne kadar cok kullanildigi          |
+
+
+### `pg_class`
+PostgreSQL sisteminde tanimli tum **tablolar, indexler, mat. view'lar** gibi yapilar burada tanimlanir.
+
+| Sutun         | Aciklama                                             |
+|---------------|------------------------------------------------------|
+| `relname`     | Tablo adi                                            |
+| `oid`         | Tablonun dahili ID'si                                |
+| `relfilenode` | Fiziksel dosya ID'si (RAM'deki bloklarla eslesebilir)|
+
+
+### `pg_relation_filenode(oid)`
+Bazi dosyalarda dogrudan relfilenode erisilmez.
+Bu yuzden tablo OID'sinden relfilenode ureten bir islemdir.
+```sql
+pg_relation_filenode(pg_class.oid)
+```
+
+###  Baglanti Nasil Kurulur?
+RAM'deki bir sayfa--> hangi tabloya ait
+```sql
+pg_buffercache.relfilenode = pg_relation_filenode(pg_class.oid)
+```
+veya bazi sistemlerde
+```sql
+pg_buffercache.relfilenode = pg_class.relfilenode
 
 
 
