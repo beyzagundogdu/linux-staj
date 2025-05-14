@@ -15,9 +15,9 @@ GROUP BY name
 ORDER BY toplam_boyut DESC
 LIMIT 5;
 ```
-|--------------|------------------------------------------------------------------------------------------------|
-| temp_files   | O sorgu toplamda kac kez diskte gecici dosya olusturmus?                                       |
-|              | ORDER BY, GROUP BY, JOIN, DISTINCT cok veriyle yapiliyorsa once bellek yetmezse diske yazilir  |
+
+|              | O sorgu toplamda kac kez diskte gecici dosya olusturmus?                                       |
+| temp_files   | ORDER BY, GROUP BY, JOIN, DISTINCT cok veriyle yapiliyorsa once bellek yetmezse diske yazilir  |
 |--------------|------------------------------------------------------------------------------------------------|
 | temp_bytes   | Hangi sorgular RAM disina cikti ve diske veri yazmak zorunda kaldi?                            | 
 |              | Gecici dosyalarin toplam boyutu (byte)                                                         |
@@ -69,6 +69,7 @@ ORDER BY temp_bytes DESC
 LIMIT 5;
 ```
 > ROUND(temp_bytes / 1024 / 1024, 2) AS temp_mb bu hesap byte->kilobyte->megabyte cevirisi yapar.
+
 > calls : bu sorgu kac kez calistirilmis.
 
 
