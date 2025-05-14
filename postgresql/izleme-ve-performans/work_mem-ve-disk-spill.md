@@ -15,6 +15,7 @@ GROUP BY name
 ORDER BY toplam_boyut DESC
 LIMIT 5;
 ```
+|--------------|------------------------------------------------------------------------------------------------|
 | temp_files   | O sorgu toplamda kac kez diskte gecici dosya olusturmus?                                       |
 |              | ORDER BY, GROUP BY, JOIN, DISTINCT cok veriyle yapiliyorsa once bellek yetmezse diske yazilir  |
 |--------------|------------------------------------------------------------------------------------------------|
@@ -22,6 +23,7 @@ LIMIT 5;
 |              | Gecici dosyalarin toplam boyutu (byte)                                                         |
 
 > Ilgili belge: [pg_stat_statements.md](pg_stat_statements.md)
+
 > pg_stat_statemnets hakkindaki belgeyi inceleyebilirsiniz.
 
 ### Iyilestirme Yollari
@@ -40,7 +42,9 @@ SHOW work_mem;
 EXPLAIN ANALYZE SELECT * FROM siparisler ORDER BY toplam_fiyat;
 ```
 > cikti yorumu:
+
 > Sort Method: extrenal merge -> disk kullanildi
+
 > Sort Method: quicksort      -> bellekte couldu
 
 ### work_mem Ayarini Artirmak
@@ -66,6 +70,8 @@ LIMIT 5;
 ```
 > ROUND(temp_bytes / 1024 / 1024, 2) AS temp_mb bu hesap byte->kilobyte->megabyte cevirisi yapar.
 > calls : bu sorgu kac kez calistirilmis.
+
+
 | sorun                                | cozumu                                 |
 |--------------------------------------|----------------------------------------|
 | sorgu cok calisiyorsa (calls yuksek) | Cache/refresh mekanizmalari planlanmali|
