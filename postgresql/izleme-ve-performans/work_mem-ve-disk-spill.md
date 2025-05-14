@@ -15,12 +15,11 @@ GROUP BY name
 ORDER BY toplam_boyut DESC
 LIMIT 5;
 ```
-|              |                                                                                                |
-| temp_files   | O sorgu toplamda kac kez diskte gecici dosya olusturmus?                                       |
-|              | ORDER BY, GROUP BY, JOIN, DISTINCT cok veriyle yapiliyorsa once bellek yetmezse diske yazilir  |
-|--------------|------------------------------------------------------------------------------------------------|
-| temp_bytes   | Hangi sorgular RAM disina cikti ve diske veri yazmak zorunda kaldi?                            | 
-|              | Gecici dosyalarin toplam boyutu (byte)                                                         |
+
+| temp_files                                                 |  temp_bytes 
+|------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| O sorgu toplamda kac kez diskte gecici dosya olusturmus?   | Hangi sorgular RAM disina cikti ve diske veri yazmak zorunda kaldi?                            | 
+| ORDER BY, GROUP BY, JOIN, DISTINCT cok veriyle yapiliyorsa once bellek yetmezse diske yazilir | Gecici dosyalarin toplam boyutu (byte)                                                         |
 
 > Ilgili belge: [pg_stat_statements.md](pg_stat_statements.md)
 
