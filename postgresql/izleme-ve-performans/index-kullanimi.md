@@ -21,10 +21,10 @@ FROM pg_stat_user_tables
 ORDER BY seq_scan DESC
 LIIMIT 10; 
 ```
-| pg_stat_user_tables                                                       |
-|---------------------------------------------------------------------------|
-| seq_scan  | Tabloya yapilan toplam sirali tarama sayisi (full table scan) |
-| idx_scan  |Tabloya yapilan toplam index tabanli tarama sayisi             |
+| pg_stat_user_tables |                                                               |
+|---------------------|---------------------------------------------------------------|
+| seq_scan            | Tabloya yapilan toplam sirali tarama sayisi (full table scan) |
+| idx_scan            |Tabloya yapilan toplam index tabanli tarama sayisi             |
 
 > NULLIF(...,0)=Eger hem seq_scan hem idx_scan sifirsa division by zero yu onlemek icin NULL dondurur.
 
@@ -42,8 +42,8 @@ JOIN pg_class t ON t.oid = i.relid
 WHERE i.idx_scan = 0
 ORDER BY t.relname;
 ```
-| pg_stat_user_indexes                                                     |
-|--------------------------------------------------------------------------|
+| pg_stat_user_indexes |                                                   |
+|----------------------|---------------------------------------------------|
 | relid                | Indexin ait oldugu tablo ID'si(pg_class.oid)      |
 | indexrelid           | Indexin kendisinin ID'si(pg_class.oid)            |
 | idx_scan             | Bu index kac defa sorgular tarafindan kullanilmis |
