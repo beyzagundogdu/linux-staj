@@ -7,8 +7,11 @@ Bu analiz sayesinde I/O problemleri, yavaslik sebepleri ve checkpoint davranisi 
 
 . PostgreSQL'in arka plandaki disk temizleyici sureclerinin istatistiklerini icerir.
 Bu surecler:
+
 . Bellekten (shared_buffers) disk uzerine yazma (flush)
+
 . Checkpoint islemleri
+
 . Temizleme (eviction), tahsis (allocation)
 
 ## `pg_stat_bgwriter` Gorunumu
@@ -16,6 +19,7 @@ Bu surecler:
 SELECT * FROM pg_stat_bgwriter;
 ```
 Tek satirda sistemin genel yazma davranisini ozetler.
+
 . Onemli Sutunlar
 
 | Sutun                 | Aciklama                                                            |
@@ -39,13 +43,18 @@ SELECT checkpoints_timed,
 FROM pg_stat_bgwriter;
 ```
 ### Ne Zaman Endiselenmeli?
+
 . buffer_backend > buffers_clean = Disk baskisi buyuk, RAM yetmeyebilir.
+
 . checkpoints_req degeri yuksek = cok fazla zorunli checkpoint olmus = sistem yorulmus olabilir.
+
 . mxwritten_clean artiyorsa = bgwriter sayfa yazmakta kisitlaniyor = ayarlar yetersiz.
 
 ### Ne Yapilabilir?
 . checkpoint_timeout, checkpoint_completion_target gibi ayarlar kontrol edilmeli.
+
 . bgwriter_lru_maxpages gibi bigwriter sinirlari artirilabilir.(background writer'in tek seferde kac sayfa temizleyecrgini belirler)
+
 . Disk I/O kapasitesi ve RAM gozden gecirilmeli.
 
 
