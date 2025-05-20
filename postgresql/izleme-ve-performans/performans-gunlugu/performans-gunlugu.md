@@ -12,7 +12,7 @@ Boylece sorgu davranislarinin zaman icinde  nasil degistigi gozlemlenebilir.
 
 TARIH=$(date '+%Y-%m-%d_%H_%M')
 LOG_KLASOR="/home/beyzagundogdu/linux-staj/postgresql/izleme-ve-performans/performans-gunlugu/logs"
-DOSYA_ADI="LOG_KLASOR/pg_stat_$TARIH.log" 
+DOSYA_ADI="$LOG_KLASOR/pg_stat_$TARIH.log" 
 
 KULLANICI="postgres"
 VERITABANI="shoper"
